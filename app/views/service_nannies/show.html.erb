@@ -1,4 +1,10 @@
-<h1>SHOW</h1>
+<% @nanny = User.find(@service_nanny.user_id) %>
 
-<p><%= @nanny.name %></p>
-<p><%= @nanny.description %></p>
+<div class="container">
+<h1><%= @nanny.name %></h1>
+
+<p><%= @service_nanny.price %></p>
+
+
+<%= link_to 'Agendar', new_service_nanny_booking_path(@service_nanny) %>
+</div>

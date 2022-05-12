@@ -1,12 +1,12 @@
 class ServiceNanniesController < ApplicationController
-  before_action :set_service, except: [:index,:destroy,:show]
+  before_action :set_service, except: [:index,:destroy]
 
   def index
     @service_nannies = ServiceNanny.all
   end
 
   def show
-    @nanny = User.find(params[:id])
+
   end
 
   def new

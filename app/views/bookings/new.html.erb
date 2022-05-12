@@ -1,0 +1,12 @@
+<div class="container">
+
+<h1>Booking</h1>
+
+<%= simple_form_for [@service_nanny,@booking] do |f| %>
+  <%= f.input :date %>
+  <%= f.input :total_price %>
+  <%= f.submit %>
+<% end %>
+
+
+</div>

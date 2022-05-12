@@ -1,12 +1,13 @@
 <h1> Services Nannys </h1>
 <div class="container">
-<p> <% @service_nannies.each do |nanny| %> </p>
+<p> <% @service_nannies.each do |service_nanny| %> </p>
   <p>Nanny</p>
-  <p><% @find = User.find(nanny.user_id) %></p>
-  <p><%= @find.email %></p>
-  <p><%= nanny.user_id %></p>
-  <p>Price: <%= nanny.price %></p>
-  <%= link_to 'Show Nanny', service_nanny_path(nanny.user_id) %>
+  <p><% @nanny = User.find(service_nanny.user_id) %></p>
+  <p><%= @nanny.email %></p>
+  <p><%= @nanny.name %></p>
+  <p>Id Nanny = <%= service_nanny.user_id %></p>
+  <p>Price: <%= service_nanny.price %></p>
+  <%= link_to 'Detalhes', service_nanny_path(service_nanny) %>
 <p><% end %></p>
 
 </div>
