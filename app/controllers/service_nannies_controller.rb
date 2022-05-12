@@ -1,16 +1,20 @@
 class ServiceNanniesController < ApplicationController
-  before_action :set_service, only [ :destroy]
+  before_action :set_service, except: [:index,:destroy,:show]
 
   def index
-    @service_nannies = Service_nannies.all
+    @service_nannies = ServiceNanny.all
+  end
+
+  def show
+    @nanny = User.find(params[:id])
   end
 
   def new
-    @service_nanny = Service_nanny.new
+    @service_nanny = ServiceNanny.new
   end
 
   def create
-    @service_nanny = Service_nanny.new(list_params)
+    @service_nanny = ServiceNanny.new(list_params)
     if @service_nanny.save
       redirect_to service_nanny_path(@service_nanny)
     else
@@ -20,13 +24,13 @@ class ServiceNanniesController < ApplicationController
 
   def destroy
     @service_nanny.destroy
-    redirect _to service_nannies_path
+    redirect_to service_nannies_path
   end
 
   private
 
   def set_service
-    @service_nanny = Service_nanny.find(prams[:id])
+    @service_nanny = ServiceNanny.find(params[:id])
   end
 
   def list_params
