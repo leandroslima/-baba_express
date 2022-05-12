@@ -31,4 +31,5 @@ class BookingsController < ApplicationController
 
   def list_params
     params.require(:booking.permit(:service_nanny_id, :user_id, :date))
+  end
 end
