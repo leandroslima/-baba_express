@@ -5,31 +5,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to User_path(@user)
-    else
-      render :new
-    end
-  end
-
-  def show
-    @service_nanny = Service_nanny.new
-  end
-
-  private
-
-  def set_user
-    @user = User.find(params[:id])
-  end
-
-
-  def user_params
-    params.require(:user).permit(:name, :description, :city, :email, :role)
+  def profile
+    @user = User.find_by(username: params[:username])
   end
 end

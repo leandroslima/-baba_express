@@ -2,25 +2,22 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy]
 
   def new
-    @booking = Booking.new
     @service_nanny = ServiceNanny.find(params[:service_nanny_id])
+    @booking = Booking.new
   end
 
   def create
 
     @booking = Booking.new(booking_params)
-    Booking.create!(user_id: current_user.id,service_nanny_id: (params[:service_nanny_id]))
+    @service_id_nanny = params[:service_nanny_id]
+    @booking.service_nanny_id = @service_id_nanny
+    @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to root_path, notice: "Agendamento realizado com sucesso!"
     else
       render :new
     end
   end
-
-  def show
-    @booking = Booking.new
-  end
-
 
   def destroy
     @booking.destroy
@@ -30,10 +27,10 @@ class BookingsController < ApplicationController
   private
 
   def set_booking
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[])
   end
 
-  def list_params
-    params.require(:booking.permit(:service_nanny_id, :user_id, :date))
+  def booking_params
+    params.require(:booking).permit(:service_nanny_id, :user_id, :date, :total_price)
   end
 end
