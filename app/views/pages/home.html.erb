@@ -3,9 +3,19 @@
   <h2>Oi</h2>
   <p>Find me in app/views/pages/home.html.erb</p>
 
+<<<<<<< HEAD
   <% if !user_signed_in? %>
   <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
   <% end %>
   <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
   <%= link_to "List of Nannies", service_nannies_path, class: "btn btn-primary" %>
 </div>
+=======
+<% if !user_signed_in? %>
+<%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+
+<%= link_to "List of Nannies", service_nannies_path, class: "btn btn-primary" %>
+>>>>>>> master
