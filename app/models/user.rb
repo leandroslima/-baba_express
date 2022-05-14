@@ -6,4 +6,5 @@ class User < ApplicationRecord
   ROLE = ['nanny','parents']
   has_many :bookings
   has_many :service_nannies, through: :bookings
+  has_one_attached :photo
 end
