@@ -1,40 +1,28 @@
 
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner text-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1540479859555-17af45c78602?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);">
   <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <h1>Babá Express<strong> a melhor plataforma</strong> para te ajudar <strong> no sufoco</strong>!</h1>
+    <p>Encontre alguém de confianca para cuidar de seus pequenos</p>
+
   </div>
 </div>
 
 
   <div class="container d-flex mt-5 justify-content-center">
   <% @service_nannies.each do |service_nanny| %>
-
+    <p><% @nanny = User.find(service_nanny.user_id) %></p>
     <div class="card-trip m-3">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <% img = ['https://images.unsplash.com/photo-1476703993599-0035a21b17a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80','https://images.unsplash.com/photo-1589169011402-8b2cbd1ee593?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=921&q=80'].sample %>
+      <img src= "<%= img %>" />
       <div class="card-trip-infos">
         <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
+          <h2><%= @nanny.name %></h2>
+          <p class="city mt-2"><%= @nanny.city %></p>
         </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        <h2 class="card-trip-pricing"> R$ <%= service_nanny.price %></h2>
       </div>
+      <div class = "text-center mb-2" ><%= link_to 'Detalhes', service_nanny_path(service_nanny), class: "btn btn-primary"%></div>
     </div>
   <% end %>
-  </div>
-
-
-<p><% @service_nannies.each do |service_nanny| %> </p>
-  <p>Nanny</p>
-  <p><% @nanny = User.find(service_nanny.user_id) %></p>
-  <p><%= @nanny.email %></p>
-  <p><%= @nanny.name %></p>
-  <p>Id Nanny = <%= service_nanny.user_id %></p>
-  <p>Price: <%= service_nanny.price %></p>
-  <%= link_to 'Detalhes', service_nanny_path(service_nanny) %>
-<p><% end %></p>
-
 </div>
