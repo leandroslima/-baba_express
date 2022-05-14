@@ -1,5 +1,6 @@
 class ServiceNanniesController < ApplicationController
-  before_action :set_service, except: [:index]
+  before_action :set_service, except: [:index, :new]
+  before_action :set_user, only: [:new, :create]
 
   def index
     @service_nannies = ServiceNanny.all
@@ -14,7 +15,7 @@ class ServiceNanniesController < ApplicationController
   end
 
   def create
-    @service_nanny = ServiceNanny.new(list_params)
+    @service_nanny = ServiceNanny.new(service_params)
     @service_nanny.user = current_user
     if @service_nanny.save
       redirect_to service_nanny_path(@service_nanny)
@@ -30,11 +31,15 @@ class ServiceNanniesController < ApplicationController
 
   private
 
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
   def set_service
     @service_nanny = ServiceNanny.find(params[:id])
   end
 
-  def list_params
+  def service_params
     params.require(:service_nanny).permit(:price, :days, :user_id)
   end
 end
