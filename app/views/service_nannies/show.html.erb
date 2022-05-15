@@ -3,8 +3,13 @@
 <div class="container">
 <h1><%= @nanny.name %></h1>
 
-<p><%= @service_nanny.price %></p>
-
+<p>Price: <%= @service_nanny.price %></p>
+<p>Days: <%= @service_nanny.days %></p>
 
 <%= link_to 'Agendar', new_service_nanny_booking_path(@service_nanny) %>
+<%= link_to 'Voltar', service_nannies_path %>
+<% if current_user.id == @service_nanny.user_id %>
+  <%= link_to 'Editar este serviço', edit_service_nanny_path(@service_nanny) %>
+  <%= link_to 'Deletar', service_nanny_path(@service_nanny), method: :delete, data: { confirm: 'Certeza?' }, class: 'ms-3 text-danger' %>
+<% end %>
 </div>
