@@ -1,5 +1,5 @@
 class ServiceNanniesController < ApplicationController
-  before_action :set_service, except: [:index]
+  before_action :set_service, except: [:index, :new, :create]
 
   def index
     @service_nannies = ServiceNanny.all
@@ -14,7 +14,7 @@ class ServiceNanniesController < ApplicationController
   end
 
   def create
-    @service_nanny = ServiceNanny.new(list_params)
+    @service_nanny = ServiceNanny.new(service_nanny_params)
     @service_nanny.user = current_user
     if @service_nanny.save
       redirect_to service_nanny_path(@service_nanny)

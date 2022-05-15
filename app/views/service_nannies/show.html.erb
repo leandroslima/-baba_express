@@ -10,5 +10,6 @@
 <%= link_to 'Voltar', service_nannies_path %>
 <% if current_user.id == @service_nanny.user_id %>
   <%= link_to 'Editar este serviço', edit_service_nanny_path(@service_nanny) %>
+  <%= link_to 'Deletar', service_nanny_path(@service_nanny), method: :delete, data: { confirm: 'Certeza?' }, class: 'ms-3 text-danger' %>
 <% end %>
 </div>

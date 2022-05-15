@@ -9,6 +9,10 @@
   </div>
   <div class="mb-3">
     <%= f.submit class: 'btn btn-primary' %>
-    <%= link_to 'Cancel', service_nanny_path(service_nanny), class: 'btn btn-danger ms-2' %>
+    <% if service_nanny.id %>
+      <%= link_to 'Cancel', service_nanny_path(service_nanny), class: 'btn btn-danger ms-2' %>
+    <% else %>
+      <%= link_to 'Cancel', root_path(service_nanny), class: 'btn btn-danger ms-2' %>
+    <% end %>
   </div>
 <% end %>

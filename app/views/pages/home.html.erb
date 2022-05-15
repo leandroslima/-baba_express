@@ -3,9 +3,13 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <% if !user_signed_in? %>
-<%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+  <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
 <% end %>
 
 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
 
 <%= link_to "List of Nannies", service_nannies_path, class: "btn btn-primary" %>
+
+<% if current_user.role == 'nanny' %>
+  <%= link_to 'Crie um serviço', new_service_nanny_path, class: 'btn btn-primary' %>
+<% end %>
