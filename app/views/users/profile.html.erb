@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+<div class="container">
+<div class="card mt-5 rounded rounded-5 mb-5">
+  <div class="card-body">
+    <% if current_user.role == 'nanny' %>
+    <h5 class="card-title">Olá, Nanny <strong><%= current_user.name %> </strong></h5>
+    <p class="card-text">Tenha um excelente dia de trabalho</p>
+    <%= link_to 'Criar Oferta', new_service_nanny_path, class: "btn btn-primary"%>
+    <% else %>
+    <h5 class="card-title">Olá,<strong> <%= current_user.name %> </strong></h5>
+    <p class="card-text">Veja a listagem de Nanny clicando no botão abaixo.</p>
+    <%= link_to 'Lista de Nannys', service_nannies_path, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+
+    <div class="card">
+      <% @list.each do |l| %>
+      <div class="card-body">
+        <h5 class="card-title">Agendamento<strong></strong></h5>
+        <p class="card-text"><strong>Dias:</strong> <%= l.date %></p>
+        <p class="card-text"><strong>Recebimento: </strong>R$ <%= l.total_price %></p>
+      </div>
+      <% end %>
+    </div>
+
+
+  <% if current_user.role == 'nanny' %>
+    <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Dias</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @list.each do |b|  %>
+    <tr>
+      <% @parent = User.find(b.user_id) %>
+      <th scope="row"></th>
+      <td><%= @parent.name %></td>
+      <td><%= b.date %></td>
+      <td>R$ <%= b.total_price %>,00</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+  <% end %>
+
+</div>
+
+
+
+
+
+</body>
+</html>

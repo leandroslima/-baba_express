@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = User.find_by(username: params[:username])
+    @user = User.find(current_user.id)
+    @list = @user.bookings
   end
 end

@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-
     @booking = Booking.new(booking_params)
     @service_id_nanny = params[:service_nanny_id]
     @booking.service_nanny_id = @service_id_nanny
@@ -27,7 +26,7 @@ class BookingsController < ApplicationController
   private
 
   def set_booking
-    @booking = Booking.find(params[])
+    @booking = Booking.find(params[:id])
   end
 
   def booking_params

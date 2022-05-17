@@ -1,3 +1,7 @@
-<h1>Adicione um novo serviço</h1>
+<h1>CRIE SUA OFERTA</h1>
 
-<%= render 'form', service_nanny: @service_nanny %>
+<%= simple_form_for [@service_nanny] do |f| %>
+  <%= f.input :price %>
+  <%= f.input :days %>
+  <%= f.submit %>
+<% end %>

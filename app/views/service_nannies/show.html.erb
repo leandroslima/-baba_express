@@ -1,50 +1,14 @@
-<% @nanny = User.find(@service_nanny.user_id) %>
+<div class="container mt-5">
+    <div class="row bg-light">
+      <div class="col-md-12">
+      <% @nanny = User.find(@service_nanny.user_id) %>
 
-<div class="container pt-3">
-  <h1><%= @nanny.name %></h1>
-    <div class="row">
-      <div class="col-lg-8 pt-6">
-        <h5 class="my-3 pt-3"><strong>City: <%= @nanny.city %></strong></h5>
-        <h5 class="my-3 pt-3"><strong>Price: R$<%= @service_nanny.price %></strong></h5>
-        <h5 class="my-3 pt-3"><strong>Days: <%= @service_nanny.days %></strong></h5>
-
-        <h5 class="my-3 pt-3"><strong>Description:</strong></h5>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci velit voluptatum officia vitae dicta. Sapiente, ipsum laudantium aspernatur, qui nam debitis, maxime pariatur laboriosam corporis tenetur ea exercitationem quas sunt! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab corporis tenetur officia nam nesciunt quia inventore mollitia esse vitae, nobis sunt alias nisi maxime velit animi in? Ipsam, accusantium explicabo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis, eaque commodi, quod omnis asperiores sit assumenda rerum quidem tempore dolorum, ea cupiditate laudantium iusto! Animi fugiat deserunt maiores tempore?</p>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="border p-4 pt-3 rounded">
-          <h4 class="text-center"><strong>Simule o valor do serviço</strong></h4>
-          <form action="/">
-            <div class="row">
-              <div class="col-lg-6 mb-3 pt-3">
-                <label for="number-children" class="form-label">No filhos</label>
-                <input type="number" id="number-children" class="form-control">
-              </div>
-              <div class="col-lg-6 mb-3 pt-3">
-                <label for="days" class="form-label">Dias Desejados</label>
-                <input type="number" id="days" class="form-control">
-              </div>
-            </div>
-            <input type="submit" class="btn btn-danger w-100" value="Calcular">
-            <div class="mb-3 pt-3 text-center">
-              <h6>Calculado com base no preço médio</h6>
-            </div>
-            <div class="my-3 text-center pt-3">
-              <output><h4>Total Price: <%= @service_nanny.price * @service_nanny.days %></h4></output>
-            </div>
-          </form>
-          <div class="my-3 text-center">
-            <%= link_to 'Agendar', new_service_nanny_booking_path(@service_nanny) %>
-          </div>
-        </div>
+      <div class="container p-5" style="height: 300px">
+      <h1><%= @nanny.name %></h1>
+      <h2><%= @nanny.description %></h2>
+      <p> R$ <%= @service_nanny.price %></p>
+      <%= link_to 'Agendar', new_service_nanny_booking_path(@service_nanny), class: "btn btn-primary" %>
       </div>
     </div>
-
-
-  <%= link_to 'Voltar', service_nannies_path %>
-  <% if current_user.id == @service_nanny.user_id %>
-    <%= link_to 'Editar este serviço', edit_service_nanny_path(@service_nanny) %>
-    <%= link_to 'Deletar', service_nanny_path(@service_nanny), method: :delete, data: { confirm: 'Certeza?' }, class: 'ms-3 text-danger' %>
-  <% end %>
+  </div>
 </div>

@@ -11,13 +11,14 @@ class ServiceNanniesController < ApplicationController
 
   def new
     @service_nanny = ServiceNanny.new
+    @nanny = current_user
   end
 
   def create
     @service_nanny = ServiceNanny.new(service_nanny_params)
     @service_nanny.user = current_user
     if @service_nanny.save
-      redirect_to service_nanny_path(@service_nanny)
+      redirect_to user_profile_path(@service_nanny)
     else
       render :new
     end
@@ -42,7 +43,12 @@ class ServiceNanniesController < ApplicationController
     @service_nanny = ServiceNanny.find(params[:id])
   end
 
+<<<<<<< HEAD
+  def list_params
+    params.require(:service_nanny).permit(:price, :days)
+=======
   def service_nanny_params
     params.require(:service_nanny).permit(:price, :days, :user_id)
+>>>>>>> master
   end
 end
