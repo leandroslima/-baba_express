@@ -43,12 +43,11 @@ class ServiceNanniesController < ApplicationController
     @service_nanny = ServiceNanny.find(params[:id])
   end
 
-<<<<<<< HEAD
   def list_params
     params.require(:service_nanny).permit(:price, :days)
-=======
+  end
+  
   def service_nanny_params
     params.require(:service_nanny).permit(:price, :days, :user_id)
->>>>>>> master
   end
 end
