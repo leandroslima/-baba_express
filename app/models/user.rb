@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   ROLE = ['nanny','parents']
   has_many :bookings
-  has_many :service_nannies, through: :bookings
+  has_many :service_nannies
+  has_many :bookings, through: :service_nannies
 end
