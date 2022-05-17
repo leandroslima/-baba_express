@@ -1,12 +1,17 @@
 <div class="container">
-
-<h1>Booking</h1>
-
-<%= simple_form_for [@service_nanny,@booking] do |f| %>
-  <%= f.input :date %>
-  <%= f.input :total_price %>
-  <%= f.submit %>
-<% end %>
-
-
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <h1>Booking</h1>
+    <%= simple_form_for :search, method: "get" do |f| %>
+      <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Go", class: "btn btn-primary" %>
+    <% end %>
+    <%# form  %>
+    <%= simple_form_for [@service_nanny,@booking] do |f| %>
+      <%= f.input :total_price %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>
+
+
