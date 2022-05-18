@@ -7,6 +7,16 @@ class ServiceNanniesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @description = @service_nanny.user
+    @teste = params[:id_user]
+    
+  end
+
+  def calculate
+    @price = params[:service_nanny][:price]
+    @days = params[:service_nanny][:days]
+    @total_price = @price.to_i * @days.to_i
+    redirect_to action: "show", id_user: @total_price
   end
 
   def new
@@ -46,7 +56,7 @@ class ServiceNanniesController < ApplicationController
   def list_params
     params.require(:service_nanny).permit(:price, :days)
   end
-  
+
   def service_nanny_params
     params.require(:service_nanny).permit(:price, :days, :user_id)
   end

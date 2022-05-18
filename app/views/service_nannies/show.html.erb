@@ -9,8 +9,16 @@
         <h5 class="my-3 pt-3"><strong>Days: <%= @service_nanny.days %></strong></h5>
 
         <h5 class="my-3 pt-3"><strong>Description:</strong></h5>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci velit voluptatum officia vitae dicta. Sapiente, ipsum laudantium aspernatur, qui nam debitis, maxime pariatur laboriosam corporis tenetur ea exercitationem quas sunt! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab corporis tenetur officia nam nesciunt quia inventore mollitia esse vitae, nobis sunt alias nisi maxime velit animi in? Ipsam, accusantium explicabo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis, eaque commodi, quod omnis asperiores sit assumenda rerum quidem tempore dolorum, ea cupiditate laudantium iusto! Animi fugiat deserunt maiores tempore?</p>
+        <p><%= @description.description %></p>
       </div>
+
+  <%= simple_form_for @service_nanny, url: url_for(action: :calculate, controller: 'service_nannies'), method: :post do |f| %>
+    <%= f.input :price %>
+    <%= f.input :days %>
+    <%= f.submit %>
+  <% end %>
+
+  simple_form_for blog, url: url_for(action: :activate, controller: 'blogs'), method: :put do |f|
 
       <div class="col-lg-4">
         <div class="border p-4 pt-3 rounded">
@@ -31,7 +39,7 @@
               <h6>Calculado com base no preço médio</h6>
             </div>
             <div class="my-3 text-center pt-3">
-              <output><h4>Total Price: <%= @service_nanny.price * @service_nanny.days %></h4></output>
+              <output><h4>Total Price: <%= @teste %></h4></output>
             </div>
           </form>
           <div class="my-3 text-center">
