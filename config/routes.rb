@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/users/:id', to: 'users#profile', as: :user_profile
   resources :service_nannies do
+    member do
+      post 'calculate'
+    end
+
     resources :bookings, only: [:new, :create]
   end
   resources :users, only: [:index]
