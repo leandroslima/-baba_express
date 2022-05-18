@@ -1,10 +1,15 @@
+.cards {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-gap: 16px;
+}
 
 .card-trip {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-top: 30px;
-  width: 300px;
+  width: 250px;
 }
 
 .card-trip > img {
