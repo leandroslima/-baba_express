@@ -9,13 +9,12 @@ class ServiceNanniesController < ApplicationController
     @booking = Booking.new
     @description = @service_nanny.user
     @teste = params[:id_user]
-    
   end
 
   def calculate
-    @price = params[:service_nanny][:price]
+    @price = ServiceNanny.find(params[:id])
     @days = params[:service_nanny][:days]
-    @total_price = @price.to_i * @days.to_i
+    @total_price = @price.price.to_i * @days.to_i
     redirect_to action: "show", id_user: @total_price
   end
 
@@ -28,7 +27,7 @@ class ServiceNanniesController < ApplicationController
     @service_nanny = ServiceNanny.new(service_nanny_params)
     @service_nanny.user = current_user
     if @service_nanny.save
-      redirect_to user_profile_path(@service_nanny)
+      redirect_to user_profile_path(@service_nanny), notice: "Oferta Criada com sucesso!"
     else
       render :new
     end

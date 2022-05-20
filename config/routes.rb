@@ -9,11 +9,13 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :show]
 =======
   get '/users/:id', to: 'users#profile', as: :user_profile
+  get 'showservice', to: 'users#showservice'
+  get 'showbooking/:id', to: 'bookings#show'
+  post 'new/:id', to: 'bookings#new', as: :new_id
   resources :service_nannies do
     member do
       post 'calculate'
     end
-
     resources :bookings, only: [:new, :create]
 >>>>>>> master
   end
