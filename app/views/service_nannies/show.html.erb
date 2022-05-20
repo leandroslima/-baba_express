@@ -16,9 +16,8 @@
         <div class="border p-4 pt-3 rounded">
           <h4 class="text-center"><strong>Simule o valor do serviço</strong></h4>
           <%= simple_form_for @service_nanny, url: url_for(action: :calculate, controller: 'service_nannies'), method: :post do |f| %>
-            <%= f.input :price %>
             <%= f.input :days %>
-            <div class="text-center pt-3"><%= f.submit %></div>
+            <div class="text-center pt-3"><%= f.button :submit, "Calcular", class: "btn btn-success" %></div>
           <% end %>
 
           <h6 class="my-3 text-center pt-3">Calculado com base no preço médio</h6>
@@ -26,8 +25,10 @@
               <output><h4>Total Price: <%= @teste %></h4></output>
             </div>
 
+          <%= button_to "Agendar", new_service_nanny_booking_path(@service_nanny), action: "new", method: :get ,params: { total_price: @teste } %>
+
           <div class="my-3 text-center">
-            <%= link_to 'Agendar', new_service_nanny_booking_path(@service_nanny) %>
+            <!--<%= link_to 'Agendar', new_service_nanny_booking_path(@service_nanny), class: "btn btn-success" %> -->
           </div>
         </div>
       </div>
