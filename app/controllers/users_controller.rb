@@ -9,4 +9,9 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @list = @user.bookings
   end
+
+  def showservice
+    @nanny = current_user
+    @list = @nanny.service_nannies
+  end
 end

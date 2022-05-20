@@ -16,6 +16,7 @@
     <h5 class="card-title">Olá, Nanny <strong><%= current_user.name %> </strong></h5>
     <p class="card-text">Tenha um excelente dia de trabalho</p>
     <%= link_to 'Criar Oferta', new_service_nanny_path, class: "btn btn-primary"%>
+    <%= link_to 'Visualizar Ofertas', showservice_path, class: "btn btn-primary"%>
     <% else %>
     <h5 class="card-title">Olá,<strong> <%= current_user.name %> </strong></h5>
     <p class="card-text">Veja a listagem de Nanny clicando no botão abaixo.</p>

@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def new
     @service_nanny = ServiceNanny.find(params[:service_nanny_id])
+    @total_price = params[:total_price]
     @booking = Booking.new
   end
 
@@ -12,10 +13,15 @@ class BookingsController < ApplicationController
     @booking.service_nanny_id = @service_id_nanny
     @booking.user = current_user
     if @booking.save
-      redirect_to root_path, notice: "Agendamento realizado com sucesso!"
+      redirect_to action: "show", id: @booking.id
+      #redirect_to root_path, notice: "Agendamento realizado com sucesso!"
     else
       render :new
     end
+  end
+
+  def show
+
   end
 
   def destroy
@@ -30,6 +36,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:service_nanny_id, :user_id, :date, :total_price)
+    params.require(:booking).permit(:service_nanny_id, :user_id, :date, :total_price, :starts_at, :ends_at)
   end
 end
