@@ -1,14 +1,9 @@
 class ApplicationController < ActionController::Base
-  #before_action :authenticate_user!
+  before_action :authenticate_user!, :except => [:home]
   before_action :configure_permitted_parameters, if: :devise_controller?
   #test
   def after_sign_in_path_for(resources)
-    if current_user.role == "nanny"
-      user_profile_path(current_user.id)
-    else
-      service_nannies_path
-    end
-
+    user_profile_path(current_user.id)
   end
 
   def configure_permitted_parameters

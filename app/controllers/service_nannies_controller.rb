@@ -12,7 +12,7 @@ class ServiceNanniesController < ApplicationController
   end
 
   def calculate
-    @price = ServiceNanny.find(2)
+    @price = ServiceNanny.find(params[:id])
     @days = params[:service_nanny][:days]
     @total_price = @price.price.to_i * @days.to_i
     redirect_to action: "show", id_user: @total_price
