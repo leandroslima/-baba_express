@@ -1,0 +1,8 @@
+<h1> Lista de Ofertas</h1>
+
+<div class="container">
+<% @list.each do |l| %>
+<p> <%= l.price  %></p>
+<p> <%= l.days  %></p>
+<% end %>
+</div>
