@@ -8,7 +8,7 @@ class ServiceNanniesController < ApplicationController
   def show
     @booking = Booking.new
     @description = @service_nanny.user
-    @teste = params[:id_user]
+    @total_price = params[:id_user]
   end
 
   def calculate

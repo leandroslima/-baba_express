@@ -22,10 +22,10 @@
 
           <h6 class="my-3 text-center pt-3">Calculado com base no preço médio</h6>
             <div class="my-3 text-center pt-3">
-              <output><h4>Total Price: <%= @teste %></h4></output>
+              <output><h4>Total Price: <%= @total_price %></h4></output>
             </div>
 
-          <%= button_to "Agendar", new_service_nanny_booking_path(@service_nanny), action: "new", method: :get ,params: { total_price: @teste } %>
+          <%= button_to "Agendar", new_service_nanny_booking_path(@service_nanny), action: "new", method: :get , params: { total_price: @total_price } %>
 
           <div class="my-3 text-center">
             <!--<%= link_to 'Agendar', new_service_nanny_booking_path(@service_nanny), class: "btn btn-success" %> -->
