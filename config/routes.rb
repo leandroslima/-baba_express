@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#profile', as: :user_profile
   get 'showservice', to: 'users#showservice'
   get 'showbooking/:id', to: 'bookings#show'
-  post 'new/:id', to: 'bookings#new', as: :new_id
+  # post 'new/:id', to: 'bookings#new', as: :new_id
   resources :service_nannies do
     member do
       post 'calculate'

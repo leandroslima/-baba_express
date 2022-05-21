@@ -1,12 +1,21 @@
+<div class="container mt-5 pt-5">
+  <div class="flash flash-success alert alert-dismissible fade show mt-5" role="alert">
+    <span><strong>Yay!</strong> 🎉 agendado com sucesso.</span>
+    <a data-bs-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
+  </div>
 
-<div class="container pt-5 mt-5">
-  <h1> Agendamento </h1>
-    <div class="row">
-      <div class="col-lg-8 pt-6">
-        <h5 class="my-3 pt-3"><strong>Início: <%= @booking.starts_at %></strong></h5>
-        <h5 class="my-3 pt-3"><strong>Término: <%= @booking.ends_at %></strong></h5>
-        <h5 class="my-3 pt-3"><strong>Valor total: R$ <%= @booking.total_price %></strong></h5>
-        <%= link_to 'Voltar para home', root_path, class: "btn btn-success" %>
-      </div>
+  <div class="card-product">
+    <div class="card-product-infos">
+      <h2>Dados do Agendamento:</h2>
+      <p>Você agendou o serviço da nanny: <strong><%= @nanny.name %></strong></p>
+      <p>Preço Total: <strong>R$ <%= @booking.total_price %></strong></p>
+      <p>Dia de inicio: <%= @booking.starts_at %></p>
+      <p> Último dia: <%= @booking.ends_at %></p>
+      <p> email: <%= @nanny.email  %> </p>
     </div>
+  </div>
+
+  <%= link_to 'Sair', root_path, class: 'btn btn-primary mt-2' %>
 </div>

@@ -14,14 +14,14 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       redirect_to action: "show", id: @booking.id
-      #redirect_to root_path, notice: "Agendamento realizado com sucesso!"
+      # redirect_to root_path, notice: "Agendamento realizado com sucesso!"
     else
       render :new
     end
   end
 
   def show
-
+    @nanny = @booking.service_nanny.user
   end
 
   def destroy

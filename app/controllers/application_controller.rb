@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   #test
   def after_sign_in_path_for(resources)
-    user_profile_path(current_user.id)
+    if current_user.role == "nanny"
+      user_profile_path(current_user.id)
+    else
+      service_nannies_path
+    end
   end
 
   def configure_permitted_parameters
