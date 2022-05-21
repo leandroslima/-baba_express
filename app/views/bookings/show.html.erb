@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <div class="container mt-5 pt-5">
   <div class="flash flash-success alert alert-dismissible fade show mt-5" role="alert">
     <span><strong>Yay!</strong> 🎉 agendado com sucesso.</span>
@@ -19,4 +20,16 @@
   </div>
 
   <%= link_to 'Sair', root_path, class: 'btn btn-primary mt-2' %>
+=======
+<div class="container pt-5 mt-5">
+  <h1> Agendamento </h1>
+    <div class="row">
+      <div class="col-lg-8 pt-6">
+        <h5 class="my-3 pt-3"><strong>Início: <%= @booking.starts_at %></strong></h5>
+        <h5 class="my-3 pt-3"><strong>Término: <%= @booking.ends_at %></strong></h5>
+        <h5 class="my-3 pt-3"><strong>Valor total: R$ <%= @booking.total_price %></strong></h5>
+        <%= link_to 'Voltar para home', root_path, class: "btn btn-success" %>
+      </div>
+    </div>
+>>>>>>> master
 </div>
