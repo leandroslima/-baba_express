@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-
+    @nanny = @booking.service_nanny.user
   end
 
   def destroy
