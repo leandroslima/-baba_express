@@ -11,6 +11,7 @@
     <div class="card-product-infos">
       <h2>Dados do Agendamento:</h2>
       <p>Você agendou o serviço da nanny: <strong><%= @nanny.name %></strong></p>
+      <p>Preço Total: <strong>R$ <%= @booking.total_price %></strong></p>
       <p>Dia de inicio: <%= @booking.starts_at %></p>
       <p> Último dia: <%= @booking.ends_at %></p>
       <p> email: <%= @nanny.email  %> </p>
