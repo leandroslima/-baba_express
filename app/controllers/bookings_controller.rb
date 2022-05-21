@@ -14,24 +14,14 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       redirect_to action: "show", id: @booking.id
-<<<<<<< HEAD
-=======
       #redirect_to root_path, notice: "Agendamento realizado com sucesso!"
->>>>>>> master
     else
       render :new
     end
   end
 
-<<<<<<< HEAD
-
-  def show
-    @service_nanny_id = Booking.find(:service_nanny_id)
-    @nanny = ServiceNanny.find()
-=======
   def show
 
->>>>>>> master
   end
 
   def destroy

@@ -5,7 +5,7 @@
     <%= simple_form_for [@service_nanny, @booking] do |f|   %>
       <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
       <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :total_price, disabled: true, input_html: { value: @total_price } %>
+      <%= f.input :total_price, input_html: { value: @total_price, readonly: :true } %>
       <%= f.button :submit, "Agendar", class: "btn btn-primary" %>
     <% end %>
     <%# form  %>

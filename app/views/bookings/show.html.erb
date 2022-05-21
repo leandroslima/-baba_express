@@ -1,4 +1,12 @@
-<h1>Agendamento</h1>
-<%= @booking.date %>
-<%= @booking.total_price %>
-<%=  %>
+
+<div class="container pt-5 mt-5">
+  <h1> Agendamento </h1>
+    <div class="row">
+      <div class="col-lg-8 pt-6">
+        <h5 class="my-3 pt-3"><strong>Início: <%= @booking.starts_at %></strong></h5>
+        <h5 class="my-3 pt-3"><strong>Término: <%= @booking.ends_at %></strong></h5>
+        <h5 class="my-3 pt-3"><strong>Valor total: R$ <%= @booking.total_price %></strong></h5>
+        <%= link_to 'Voltar para home', root_path, class: "btn btn-success" %>
+      </div>
+    </div>
+</div>
